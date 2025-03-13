@@ -13,6 +13,57 @@
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
     </script>
     <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --text-color: #ffffff;
+            --container-bg: #2d2d2d;
+            --border-color: #404040;
+            --input-bg: #333333;
+            --hover-color: #404040;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            background-color: var(--container-bg);
+        }
+
+        .admin-section, .backup-container {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        input, select, .file-input-container {
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .tab {
+            background-color: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        .tab.active {
+            background-color: var(--container-bg);
+        }
+
+        .tab:hover {
+            background-color: var(--hover-color);
+        }
+
+        .back-link {
+            color: var(--text-color);
+        }
+
+        .preview-container {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+        }
+
         .backup-container {
             background-color: #fff;
             border-radius: 10px;
@@ -67,13 +118,7 @@
         <a href="index.html" class="back-link">← العودة إلى الصفحة الرئيسية</a>
         <h1>لوحة إدارة المواد التعليمية</h1>
         
-        <div class="backup-container">
-            <h3>نسخ احتياطي واستعادة البيانات</h3>
-            <div class="buttons-container">
-                <button type="button" class="btn" onclick="exportDataAsZip()">تصدير البيانات والملفات</button>
-                <button type="button" class="btn" onclick="importDataFromZip()">استيراد البيانات والملفات</button>
-            </div>
-        </div>
+       
         
         <div class="tab-container">
             <div class="tabs">
@@ -215,6 +260,13 @@
                     <h3>الكتب المضافة</h3>
                     <!-- سيتم إضافة الكتب هنا ديناميًا -->
                 </div>
+            </div>
+        </div>
+        <div class="backup-container">
+            <h3>نسخ احتياطي واستعادة البيانات</h3>
+            <div class="buttons-container">
+                <button type="button" class="btn" onclick="exportDataAsZip()">تصدير البيانات والملفات</button>
+                <button type="button" class="btn" onclick="importDataFromZip()">استيراد البيانات والملفات</button>
             </div>
         </div>
     </div>
