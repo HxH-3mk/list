@@ -387,24 +387,30 @@ async function editMaterial(id) {
             document.getElementById('sides').value = material.sides;
             document.getElementById('price').value = material.price;
             
-            // Display current file name
+            // تعيين معرف العنصر الذي يتم تعديله
+            document.getElementById('materialForm').dataset.editId = id;
+            
+            // حفظ معرف الملف في خاصية مخصصة
+            document.getElementById('materialForm').dataset.fileId = material.fileId;
+            
+            // عرض اسم الملف الحالي
             if (material.fileName) {
                 document.getElementById('materialFileName').textContent = `الملف الحالي: ${material.fileName}`;
                 
-                // Display preview of current file
+                // تعيين سمة الملف المطلوبة إلى اختيارية أثناء التحرير
+                document.getElementById('materialFile').removeAttribute('required');
+                
+                // عرض معاينة للملف الحالي
                 if (material.fileId) {
                     renderPdfPreviewFromDB(material.fileId, 'materialPreview');
                 }
             }
             
-            // Store the ID of the item being edited
-            document.getElementById('materialForm').dataset.editId = id;
-            
-            // Change submit button text
+            // تغيير نص زر الحفظ
             const submitButton = document.querySelector('#materialForm .btn-success');
             submitButton.textContent = 'تحديث المذكرة';
             
-            // Scroll to edit form
+            // التمرير إلى نموذج التعديل
             document.querySelector('#tab-materials .admin-section').scrollIntoView({ behavior: 'smooth' });
         }
     } catch (error) {
