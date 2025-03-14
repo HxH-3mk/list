@@ -1,110 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --accent-color: #60a5fa;
+    --background-color: #1e293b;
+    --card-background: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.2), 0 2px 4px -2px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.2), 0 4px 6px -4px rgba(0,0,0,0.1);
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Tajawal', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #2c3e50; /* Dark background color */
-    color: #ecf0f1; /* Light text color */
+    background: linear-gradient(to bottom, #1e293b, #0f172a);
+    color: var(--text-primary);
     direction: rtl;
+    line-height: 1.6;
 }
+
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #34495e; /* Dark container background */
+    margin: 2rem auto;
+    /* padding: 2rem; */
+    background: linear-gradient(to bottom, #1e293b, #0f172a);
+    border-radius: 1rem;
+    /* box-shadow: var(--shadow-lg); */
 }
+
 h1, h2 {
-    color: #ffffff;
+    color: var(--text-primary);
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    position: relative;
 }
+
+h1::after, h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
 .materials-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
+
 .material-card, .book-card {
-    background-color: #34495e; /* Dark card background */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    background: var(--card-background);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .material-card:hover, .book-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
 }
+
 .preview-container {
     height: 250px;
-    background-color: #585858;
+    background: linear-gradient(135deg, #2d3748, #1a202c);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .preview-container img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
+
 .pdf-placeholder {
-    width: 200px;
-    height: 250px;
-    background-color: #e0e0e0;
+    width: 180px;
+    height: 230px;
+    background: linear-gradient(45deg, #4b5563, #374151);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #777;
-    font-weight: bold;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border-radius: 0.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
+
 .details {
-    padding: 15px;
+    padding: 1.5rem;
 }
+
 .material-title, .book-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #1abc9c; /* Light title color */
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
 }
+
 .info-grid {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 5px 10px;
-    margin-bottom: 15px;
+    gap: 0.75rem 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
 }
+
 .info-label {
-    font-weight: bold;
-    color: #ffffff;
+    font-weight: 500;
+    color: var(--accent-color);
 }
+
 .info-value {
-    color: #ffffff;
+    color: var(--text-secondary);
 }
+
 .download-link {
     display: block;
+    /* width: 100%; */
     text-align: center;
-    background-color: #1abc9c; /* Light link background */
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
     color: white;
     text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
+
 .download-link:hover {
-    background-color: #16a085; /* Darker hover color */
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
+
 .section-divider {
-    height: 2px;
-    background-color: #3498db;
-    margin: 30px 0;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--primary-color));
+    margin: 3rem 0;
+    border-radius: 1.5px;
 }
+
 .admin-link {
-    display: block;
+    display: inline-block;
     text-align: center;
-    margin-top: 30px;
-    color: #1abc9c; /* Light admin link color */
+    margin: 2rem auto 0;
+    color: var(--accent-color);
     text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
 }
+
 .admin-link:hover {
-    text-decoration: underline;
+    background-color: var(--accent-color);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .materials-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .preview-container {
+        height: 200px;
+    }
+    
+    .pdf-placeholder {
+        width: 150px;
+        height: 190px;
+    }
 }
